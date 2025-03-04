@@ -1,0 +1,222 @@
+@import "tailwindcss";
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+html,
+body,
+main {
+  height: 100%;
+}
+html,
+body {
+  width: 100%;
+}
+main {
+  padding-top: 30px;
+}
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
+body {
+  color: #964b00;
+  background: #f7f4dc;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.header {
+  color: #f7f4dc;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: #964b00;
+  padding: 20px 0;
+}
+.header a {
+  text-decoration: none;
+  color: #f7f4dc;
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bolder;
+}
+.footer {
+  width: 100%;
+  background-color: #964b00;
+  color: #f7f4dc;
+}
+.home-container {
+  width: 100%;
+  height: 100%;
+  margin-top: 60px;
+  padding: 30px 0px;
+}
+.landingpage-details {
+  font-size: 18px;
+}
+.cards-block {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 65px;
+}
+.card.back > .card-body {
+  gap: 15px;
+}
+.card-body > button {
+  background-color: #964b00;
+  border: 1px solid #964b00;
+  border-radius: 6px;
+  color: #ffffff;
+}
+/* Extra Small Devices (Smartphones, Portrait) */
+@media only screen and (max-width: 575px) {
+  main {
+    margin: auto;
+    /* Styles for extra small devices */
+    width: 550px;
+  }
+}
+
+/* Small Devices (Smartphones, Landscape) */
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  main {
+    margin: auto;
+    /* Styles for small devices */
+    width: 550px;
+  }
+}
+
+/* Medium Devices (Tablets) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  main {
+    margin: auto;
+    /* Styles for medium devices */
+    width: 738px;
+  }
+}
+
+/* Large Devices (Laptops) */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  main {
+    margin: auto;
+    /* Styles for large devices */
+    width: 952px;
+  }
+}
+
+/* Extra Large Devices (Desktops) */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  main {
+    margin: auto;
+    /* Styles for extra large devices */
+    width: 1180px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  main {
+    margin: auto;
+    /* Styles for extra large devices */
+    width: 1360px;
+  }
+}
+
+/* css to be moved to card component  */
+.modal-details-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.modal-dialog {
+  max-width: 900px !important;
+  margin-right: auto;
+  margin-left: auto;
+}
+.modal-title {
+  font-size: 28px;
+}
+.modal-detail-item {
+  font-size: 22px;
+}
+hr {
+  border: none;
+  height: 2px;
+  background-color: black; /* Set the color of the line */
+  width: 100%; /* Adjust the width */
+  margin: 20px auto; /* Center the line and add spacing */
+}
+.section-title {
+  font-size: 28px;
+  font-weight: bolder;
+}
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.animated-section {
+  margin-top: 70px;
+}
+.animated-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.animated-section li {
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slideIn 1.0s ease-in-out forwards;
+  position: relative;
+  padding-left: 30px; /* Space for the icon */
+  font-size: 20px;
+}
+
+.animated-section li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px; /* Adjust based on icon size */
+  height: 20px; /* Adjust based on icon size */
+  background-image: url(/images/restaurantBell.png);
+  background-size: cover;
+}
+
+.animated-section li:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+.animated-section li:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.animated-section li:nth-child(3) {
+  animation-delay: 1.2s;
+}
+
+.animated-section li:nth-child(4) {
+  animation-delay: 1.6s;
+}
+.animated-section li:nth-child(5) {
+  animation-delay: 2s;
+}
+.animated-section li:nth-child(6) {
+  animation-delay: 2.4s;
+}

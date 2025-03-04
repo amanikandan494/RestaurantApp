@@ -1,0 +1,8 @@
+.piechart-container {
+  width: 240px;
+  height: 240px;
+}
+.piechart-container>canvas{
+    width:200px !important;
+    height:200px !important;
+}
