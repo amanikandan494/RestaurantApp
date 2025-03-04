@@ -125,7 +125,7 @@ export default function Home() {
       setData(jsonData);
     };
     fetchData();
-  }, []);
+  }, [orderDetailsPairInitial]);
 
   return (
     <div className="home-container">
