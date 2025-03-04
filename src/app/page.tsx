@@ -15,7 +15,9 @@ interface KeyValuePair {
 interface OrderDetailsPair {
   [key: string]: any;
 }
-
+interface OrderType{
+  [key: string]: any;
+}
 export default function Home() {
   const orderDetailsPairInitial: OrderDetailsPair = {
     Online: 0,
@@ -83,7 +85,7 @@ export default function Home() {
         },
       };
       setTotalOrders((prev: any) => jsonData.length);
-      jsonData.forEach((order) => {
+      jsonData.forEach((order:OrderType) => {
         let eachOrderPrice = 0;
         console.log(
           "Each order:",
