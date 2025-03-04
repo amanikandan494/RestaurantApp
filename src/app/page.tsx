@@ -15,17 +15,13 @@ interface KeyValuePair {
 interface OrderDetailsPair {
   [key: string]: any;
 }
-interface OrderType{
+interface OrderType {
+  [key: string]: any;
+}
+interface ItemType {
   [key: string]: any;
 }
 export default function Home() {
-  const orderDetailsPairInitial: OrderDetailsPair = {
-    Online: 0,
-    "Dine In": 0,
-    Pending: 0,
-    "In Transit": 0,
-    Delivered: 0,
-  };
   const [data, setData] = useState<any[] | null>(null);
   const [totalOrders, setTotalOrders] = useState<number>(0);
   const [totalPrice, setTotalPrice] = useState<number>(0);
@@ -47,12 +43,20 @@ export default function Home() {
       price: 0,
     },
   });
-  const [orderDetailsPair, setOrderDetailsPair] = useState<OrderDetailsPair>(
-    orderDetailsPairInitial
-  );
-  const [orderPricePair, setOrderPricePair] = useState<OrderDetailsPair>(
-    orderDetailsPairInitial
-  );
+  const [orderDetailsPair, setOrderDetailsPair] = useState<OrderDetailsPair>({
+    Online: 0,
+    "Dine In": 0,
+    Pending: 0,
+    "In Transit": 0,
+    Delivered: 0,
+  });
+  const [orderPricePair, setOrderPricePair] = useState<OrderDetailsPair>({
+    Online: 0,
+    "Dine In": 0,
+    Pending: 0,
+    "In Transit": 0,
+    Delivered: 0,
+  });
   const [modalFlag, setModalFlag] = useState<string>("");
   const [showModal, setShowModal] = useState(false);
 
@@ -64,8 +68,20 @@ export default function Home() {
       const res = await fetch("/sampleData/restaurantDetails.json");
       const jsonData = await res.json();
       let price = 0;
-      let orderDetailsPairObj: OrderDetailsPair = orderDetailsPairInitial;
-      let orderPricePairObj: OrderDetailsPair = orderDetailsPairInitial;
+      let orderDetailsPairObj: OrderDetailsPair = {
+        Online: 0,
+        "Dine In": 0,
+        Pending: 0,
+        "In Transit": 0,
+        Delivered: 0,
+      };
+      let orderPricePairObj: OrderDetailsPair = {
+        Online: 0,
+        "Dine In": 0,
+        Pending: 0,
+        "In Transit": 0,
+        Delivered: 0,
+      };
       let keyValuePairsObj: KeyValuePair = {
         Food: {
           quantity: 0,
@@ -85,7 +101,7 @@ export default function Home() {
         },
       };
       setTotalOrders((prev: any) => jsonData.length);
-      jsonData.forEach((order:OrderType) => {
+      jsonData.forEach((order: OrderType) => {
         let eachOrderPrice = 0;
         console.log(
           "Each order:",
@@ -97,7 +113,7 @@ export default function Home() {
           [order?.Order_Type]: orderDetailsPairObj[order?.Order_Type] + 1,
           [order?.Order_Status]: orderDetailsPairObj[order?.Order_Status] + 1,
         };
-        order?.Items?.forEach((item) => {
+        order?.Items?.forEach((item: ItemType) => {
           eachOrderPrice += item?.Total_Price;
           price += item?.Total_Price;
           keyValuePairsObj = {
@@ -127,7 +143,7 @@ export default function Home() {
       setData(jsonData);
     };
     fetchData();
-  }, [orderDetailsPairInitial]);
+  }, []);
 
   return (
     <div className="home-container">
